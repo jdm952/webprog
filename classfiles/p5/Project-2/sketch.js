@@ -1,8 +1,8 @@
-function setup() {
+function setup () {
   createCanvas(480, 120);
 }
 
-function draw() {
+function draw () {
   background(204);
-  quad
+  quad;
 }
