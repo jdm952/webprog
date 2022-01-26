@@ -40,18 +40,65 @@ console.log("bike seat", myBicycle);
 //viewing values by ket (dot and array notation)
 
 //starting the question assignment
-const questions = [
-    { question: "red + blue", answer: "purple" },
-    { question: "2 + banana", answer: "2banana" },
-    { question: "adding white", answer: "tint" }
-]
+//const questions = [
+//    { question: "red + blue", answer: "purple" },
+//    { question: "2 + banana", answer: "2banana" },
+//    { question: "adding white", answer: "tint" }
+//]
 
 // determine how long question set is
-const questionLength = questions.length;
+// const questionLength = questions.length;
 //choose a pseudo-random number between 0 and the length of the array using math.floor(Math.random() * ARRAY_LENGTH)
-const questionIndex = Math.floor(Math.random() * questionLength); //random between 0 and 2
+//const questionIndex = Math.floor(Math.random() * questionLength); //random between 0 and 2
 //display question with window.prompt
-const answer = window.prompt(questions[questionIndex].question);
-if (answer === questions[questionIndex].answer) {
-        window.alert("you win");
+//const answer = window.prompt(questions[questionIndex].question);
+//if (answer === questions[questionIndex].answer) {
+//        window.alert("you win");
+// }
+
+//objects
+const kensCar = {
+    color: 'red',
+    pistons: 4
 }
+console.log(kensCar);
+//mutate: add data (properties)
+kensCar.fuelInjection = true;
+console.log(kensCar);
+kensCar['4-wheel-drive']= true;
+
+//display single item with dot
+console.log("kens car is", kensCar.color);
+//display single item with array notation
+console.log('is it 4 wheel dig?', kensCar['4-wheel-drive']);
+// using toString (works with arrays too)
+console.log(kensCar.toString());
+const myCars = ['rav', 'pilot', 'juke'];
+console.log(myCars.toString());
+
+//mutate: remove property
+delete kensCar.pistons;
+console.log('kens car without pistons', kensCar);
+
+//merge two objects
+const basicJuke = {
+    wheels: 4,
+    color: "black",
+    doors: 4,
+    make: 'Nissan'
+};
+const newJuke = Object.assign({}, basicJuke, kensCar);
+console.log('new juke', newJuke);
+
+//objects in arrays
+//an array is created by doing:
+const cars = [
+    {make: 'Nissan', model: 'Rogue', color: 'orange'},
+    {make: 'Nissan', model: 'Altima', color: 'blue'},
+    {make: 'Dodge', model: 'Viper', color: 'blue'}
+];
+console.log('index 1 of cars color', cars[1].color);
+const randomIdx = Math.round(Math.random() * cars.length -1);
+//Math.random gives us a number between 0 and 1
+//cars.length gives us the length of the cars array
+//do the -1 because cars are indexed 0, 1, and 2. if we want to know whether it's the 
