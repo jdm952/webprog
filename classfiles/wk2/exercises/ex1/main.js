@@ -1,3 +1,4 @@
-let myArr = ['Spy', 'Lord of the Rings', 'My Big Fat Greek Wedding', 'Strictly Ballroom', 'The Descendants'];
-console.log(myArr);
-let favMovie = prompt('what is your favorite movie?');
+let myMovies = ['Spy', 'Lord of the Rings', 'Amelie', 'Strictly Ballroom', 'The Descendants'];
+let favMovie = window.prompt('what is your favorite movie?');
+myMovies.push(favMovie);
+console.log('our favorite movies', myMovies.toString());
