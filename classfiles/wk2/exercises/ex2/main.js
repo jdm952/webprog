@@ -7,3 +7,4 @@ const myGames = [
 ]
 const yourNumber = window.prompt('I have 5 games in my collection. Pick a number between 1 and 5 and I will tell you about that game');
 console.log("You selected " + myGames[yourNumber - 1].title + " which is a " + myGames[yourNumber - 1].type + " game. " + "You can play with " + myGames[yourNumber - 1].numberOfPlayers + " players. I give the game " + myGames[yourNumber - 1].rating + " stars. How to play: " + myGames[yourNumber - 1].shortDescription + ".");
+window.alert("You selected " + myGames[yourNumber - 1].title + " which is a " + myGames[yourNumber - 1].type + " game. " + "You can play with " + myGames[yourNumber - 1].numberOfPlayers + " players. I give the game " + myGames[yourNumber - 1].rating + " stars. How to play: " + myGames[yourNumber - 1].shortDescription + ".");
