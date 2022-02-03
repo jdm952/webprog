@@ -1,5 +1,6 @@
 function setup () {
     createCanvas(600, 600);
+    noLoop();
 }
 function createTile(originX,originY, diameter, start, stop) {
     translate(originX, originY, diameter, start, stop);
@@ -19,14 +20,14 @@ function createTile(originX,originY, diameter, start, stop) {
     circle(100, 100, diameter);
 }
 function draw(){
-    createTile(0, 0, 20, HALF_PI, QUARTER_PI);
-    createTile(0, 200, 75, TWO_PI, PI);
-    createTile(0, 200, 20, TWO_PI, PI);
-    createTile(200, -400, 75, PI, TWO_PI);
-    createTile(0, 200, 50, PI, TWO_PI);
-    createTile(0, 200, 75, TWO_PI, PI);
-    createTile(200, -400, 20, PI, TWO_PI);
-    createTile(0, 200, 75, TWO_PI, PI);
-    createTile(0, 200, 20, TWO_PI, HALF_PI);
-    noLoop();
+    angleMode(DEGREES);
+    createTile(0, 0, 30, 135, 315);
+    createTile(0, 200, 75, 90, 270);
+    createTile(0, 200, 30, 45, 225);
+    createTile(200, -400, 75, 180, 360);
+    createTile(0, 200, 50, 0, 360);
+    createTile(0, 200, 75, 360, 180);
+    createTile(200, -400, 30, 225, 45);
+    createTile(0, 200, 75, 270, 90);
+    createTile(0, 200, 30, 315, 135);
 } 

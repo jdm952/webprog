@@ -1,5 +1,6 @@
 function setup () {
     createCanvas(200, 200);
+    noLoop();
 }
 function createTile() {
     translate(0, 0);
@@ -21,5 +22,4 @@ function createTile() {
 }
 function draw(){
     createTile();
-    noLoop();
 } 
