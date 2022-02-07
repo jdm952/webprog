@@ -5,8 +5,10 @@ let weight = window.prompt("enter a number between 1 and 15", 1);
 
 function setup() {
     createCanvas(800, 800);
-    background(0);
+    background(50);
     angleMode(DEGREES);
+    heading = createElement('h1', "Click to change rotation. Double click to stop.")
+    heading.position(50, 10);
 }
 
 function makeArm(rotateBy, fillColor, strokeColor, weight) {
@@ -24,6 +26,9 @@ function draw() {
     rotate(rotateBy);
     makeArm(rotateBy, fillColor, strokeColor, weight);
     rotateBy += 8;
+    //fill('white'); 
+    textSize(18);
+    textFont('Roboto');
 }
 
 function mousePressed() {
