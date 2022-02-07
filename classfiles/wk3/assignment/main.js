@@ -28,7 +28,6 @@ function draw() {
 
 function mousePressed() {
     rotateBy = getRandomInt(360);
-      
 }
 
 function getRandomInt(max) {
