@@ -27,8 +27,13 @@ function draw() {
 }
 
 function mousePressed() {
-    rotateBy = 1;
+    rotateBy = getRandomInt(360);
+      
 }
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 function doubleClicked () {
     noLoop();
