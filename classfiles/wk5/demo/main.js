@@ -1,143 +1,109 @@
-// var x = 280;
-// var y = -100;
-// var diameter = 380;
-// function setup() {
-//     createCanvas(480, 120);
-//     fill(0, 102);
-//     noStroke();
-// }
-// function draw() {
-//     background(204);
-//     ellipse(x, y, diameter, diameter);
-// }
+const DOWN = 'down';
+const UP = 'up';
+let startingX = 100;
+let startingY = 100;
+let cards = [];
+const gameState = {
 
-// function draw() {
-//     background(204);
-//     ellipse(mouseX, mouseY, 9, 9);
-// }
+}
+let cardfaceArray = [];
+let cardback;
+function preload () {
+    cardback = loadImage('img/card_back200x200.png');
+    cardfaceArray = [
+        loadImage('img/img1x200.png'),
+        loadImage('img/img2.png'),
+        loadImage('img/img3.png'),
+        loadImage('img/img4.png'),
+        loadImage('img/img5.png'),
+    ]
+}
+function setup () {
+    createCanvas(1300, 600);
+    background(0);
+    let selectedFaces = [];
+    for (let z = 0; z < 5; z++) {
+        const randomIdx = floor(random(cardfaceArray.length));
+        const face = cardfaceArray[randomIdx];
+        selectedFaces.push(face);
+        selectedFaces.push(face);
+        //remove the used cardface so it doesn't get randomly selected again
+        cardfaceArray.splice(randomIdx, 1);
+    }
+    selectedFaces = shuffleArray(selectedFaces);
+    for (let j = 0; j < 2; j++) {
+        for (let i = 0; i < 5; i++) {
+            const faceImage = selectedFaces.pop();
+            cards.push(new Card(startingX, startingY, faceImage));
+            startingX += 220;
+        }
+        startingY += 250
+        startingX = 100;
+    }
 
-//easing
-
-// var x = 0;
-// var easing = 0.01;
-// function setup() {
-//     createCanvas(220, 120);
-// }
-// function draw() {
-//     var targetX = mouseX;
-//     x += (targetX - x) * easing;
-//     ellipse(x, 40, 12, 12);
-//     print(targetX + " : " + x);
-// }
-
-// mouse clicking
-// function setup() {
-//     createCanvas(240, 120);
-//     strokeWeight(30);
-// }
-
-// function draw() {
-//     background(204);
-//     stroke(102);
-//     line(40, 0, 70, height);
-//     if (mouseIsPressed) {
-//         stroke(0);
-//     } else{
-//         stroke(255);
-//     }
-//     line(0, 70, width, 50);
-// }
-
-// var x;
-// var offset = 10;
-
-// function setup() {
-//     createCanvas(240, 120);
-//     x = width/2;
-// }
-
-// function draw() {
-//     background(204);
-//     if (mouseX > x) {
-//         x += 0.5;
-//         offset = -10;
-//     }
-//     if (mouseX < x) {
-//         x -= 0.5;
-//         offset = 10;
-//     }
-    //draw arrow left or right depending on offset value
-//     line(x, 0, x, height);
-//     line(mouseX, mouseY, mouseX + offset, mouseY - 10);
-//     line(mouseX, mouseY, mouseX + offset, mouseY + 10);
-//     line(mouseX, mouseY, mouseX + offset*3, mouseY);
-// }
-
-//draw some letters
-// function setup() {
-//     createCanvas(120, 120);
-//     textSize(64);
-//     textAlign(CENTER);
-//     fill(255);
-// }
-
-// function draw() {
-//     background(0);
-//     text(key, 60, 80);
-//     }
-
-//robot
-var x = 60;
-var y = 440;
-var radius = 45; //head
-var bodyHeight = 160;
-var neckHeight = 70;
-var easing = 0.04;
-
-function setup() {
-    createCanvas(360, 480);
-    strokeWeight(2);
-    ellipseMode(RADIUS);
 }
 
-function draw() {
-
-    var targetX = mouseX;
-    x += (targetX - x) * easing;
-
-    if (mouseIsPressed) {
-        neckHeight = 16;
-        bodyHeight = 90;
-    } else {
-        neckHeight = 70;
-        bodyHeight = 160;
+function mousePressed () {
+    for (let k = 0; k < cards.length; k++) {
+        if(cards[k].didHit(mouseX, mouseY)) {
+            console.log('flipped', cards[k]);
+        }
     }
-    
-    var neckY = y - bodyHeight - neckHeight - radius;
+}
 
-    background(204);
+class Card {
+    constructor (x, y, cardFaceImg) {
+        this.x = x;
+        this.y = y;
+        this.width = 200;
+        this.height = 200;
+        this.face = DOWN;
+        this.cardFaceImg = cardFaceImg;
+        this.show();
+    }
 
-    //Neck
-    stroke(102);
-    line(x+12, y-bodyHeight, x+12, neckY);
+    show () {
+        if (this.face === DOWN) {
+            fill('rgb(57.7%, 9.9%, 9.9%)');
+            rect(this.x, this.y, this.width, this.height);
+            image(cardback, this.x, this.y);
+        } else {
+            fill('#aaa');
+            rect(this.x, this.y, this.width, this.height);
+            image(this.cardFaceImg, this.x, this.y);
+        }
+    }
 
-    //Antennae
-    line(x+12, neckY, x-18, neckY-43);
-    line(x+12, neckY, x+42, neckY-99);
-    line(x+12, neckY, x+78, neckY+15);
+    didHit (mouseX, mouseY) {
+        if (mouseX >= this.x && mouseX <= this.x + this.width && mouseY >= this.y && mouseY <= this.y + this.height) {
+            this.flip();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    //body
-    noStroke();
-    fill(102);
-    ellipse(x, y-33, 33, 33);
-    fill(0);
-    rect(x-45, y-bodyHeight, 90, bodyHeight-33);
+    flip () {
+        if (this.face === DOWN) {
+            this.face = UP;
+        } else {
+            this.face = DOWN;
+        }
+        this.show();
+    }
+}
 
-    //head
-    fill(0);
-    ellipse(x+12, neckY, radius, radius);
-    fill(255);
-    ellipse(x+24, neckY-6, 14, 14);
-    fill(0);
-    ellipse(x+24, neckY-6, 3, 3);
+function shuffleArray (array) {
+    let counter = array.length;
+    while (counter > 0) {
+        //pick random index
+        const idx = Math.floor(Math.random() * counter);
+        //decrease counter by 1 (decrement)
+        counter--;
+        //swap the last element with it
+        const temp = array[counter];
+        array[counter] = array[idx];
+        array[idx] = temp;
+    }
+    return array;
 }
