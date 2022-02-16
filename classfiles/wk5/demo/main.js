@@ -58,7 +58,7 @@ function draw () {
     if (gameState.numMatched === gameState.totalPairs) {
         fill('yellow');
         textSize(66);
-        text('you win!!!', 400, 100);
+        text('winner winner chicken dinner', 400, 100);
         noLoop();
     }
     for (let b = 0; b < cards.length; b++) {
@@ -126,11 +126,9 @@ class Card {
 
     show () {
         if (this.face === UP || this.isMatch) {
-            fill('#aaa');
             rect(this.x, this.y, this.width, this.height);
             image(this.cardFaceImg, this.x, this.y);
         } else {
-            fill('rgb(57.7%, 9.9%, 9.9%)');
             rect(this.x, this.y, this.width, this.height);
             image(cardback, this.x, this.y);
         }
