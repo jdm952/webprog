@@ -1,48 +1,51 @@
-let myBubbleArray = [];
-let startingX = 200;
-let startingY = 150;
-let startingX2 = 400;
-let startingY2 = 100;
+let myLineArray = [];
+let startingX = 0;
+let startingY = 0;
+let startingX2 = 50;
+let startingY2 = 50;
 
-function setup() {
-    createCanvas(1000, 1000);
-    bubble = new Bubble;
-}
-
-function draw() {
-    background(0);
-    for (let bubbleArrayIdx = 0; bubbleArrayIdx < myBubbleArray.length; bubbleArrayIdx++) {
-        myBubbleArray[bubbleArrayIdx].move();
-        myBubbleArray[bubbleArrayIdx].show();
+class Line {
+    constructor(x, y, x2, y2) {
+        this.x = x;
+        this.y = y;
+        this.x2 = x2;
+        this.y2 = y2;
     }
-
-}
-
-class Bubble {
-    constructor() {
-        this.x = 200;
-        this.y = 150;
-        this.x2 = 400;
-        this.y2 = 100;
-    }
-     move() {
-         this.x = this.x + random(-5, 5);
-         this.y = this.y + random(-5, 5);
-     }
 
      show() {
-         stroke(255);
+         stroke(255, 75, 3);
          strokeWeight(4);
          noFill();
          line(this.x, this.y, this.x2, this.y2);
      }
+
+     move() {
+        this.x = this.x + random(-5, 5);
+        this.y = this.y + random(-5, 5);
+        this.x2 = this.x2 + random(-3, 3);
+        this.y2 = this.y2 + random(-7, 7);
+    }
 }
 
 for (let i = 0; i < 20; i++) {
-    const tempBubble = new Bubble(startingX, startingY, startingX2, startingY2);
-    myBubbleArray.push(tempBubble);
+    const makeLines = new Line(startingX, startingY, startingX2, startingY2);
+    myLineArray.push(makeLines);
     startingX += 50;
-    startingY += 100;
-    startingX2 += 300;
-    startingY2 += 400;
+    startingY += 50;
+    startingX2 += 50;
+    startingY2 += 50;
 }
+
+function setup() {
+    createCanvas(1000, 1000);
+}
+
+function draw() {
+    background(0);
+    for (let lineArrayIdx = 0; lineArrayIdx < myLineArray.length; lineArrayIdx++) {
+        myLineArray[lineArrayIdx].move();
+        myLineArray[lineArrayIdx].show();
+    }
+
+}
+
