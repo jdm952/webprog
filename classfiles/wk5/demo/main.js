@@ -167,3 +167,19 @@ function shuffleArray (array) {
     }
     return array;
 }
+
+
+//  quiz
+// let chihuahuas = ['Lucky', 'Lucy', 'Limda', 'Lacey', 'Carl'];
+// console.log(chihuahuas.length);
+// for (var i = 0; i < chihuahuas.length; i++) {
+//     if (i >= 0) {
+//         chihuahuas.shift();
+//     }
+//     console.log('My dog ', chihuahuas[0], 'is a really good puppy.');
+// }
+
+// let greekMythicalCharacters = ["Athena", "Zeus", "Hermes", "Hercules", "Hera", "that one guy"];
+// greekMythicalCharacters.pop();
+// greekMythicalCharacters.push("Hades");
+// console.log(greekMythicalCharacters);
