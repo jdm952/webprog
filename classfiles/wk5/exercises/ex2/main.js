@@ -1,6 +1,8 @@
 let myBubbleArray = [];
-let startingX = 50;
-let startingY = 100;
+let startingX = 200;
+let startingY = 150;
+let startingX2 = 400;
+let startingY2 = 100;
 
 function setup() {
     createCanvas(1000, 1000);
@@ -20,8 +22,8 @@ class Bubble {
     constructor() {
         this.x = 200;
         this.y = 150;
-        this.width = 24;
-        this.height = 24;
+        this.x2 = 400;
+        this.y2 = 100;
     }
      move() {
          this.x = this.x + random(-5, 5);
@@ -32,12 +34,15 @@ class Bubble {
          stroke(255);
          strokeWeight(4);
          noFill();
-         ellipse(this.x, this.y, this.width, this.height);
+         line(this.x, this.y, this.x2, this.y2);
      }
 }
 
 for (let i = 0; i < 20; i++) {
-    const tempBubble = new Bubble(startingX, startingY);
+    const tempBubble = new Bubble(startingX, startingY, startingX2, startingY2);
     myBubbleArray.push(tempBubble);
     startingX += 50;
+    startingY += 100;
+    startingX2 += 300;
+    startingY2 += 400;
 }
