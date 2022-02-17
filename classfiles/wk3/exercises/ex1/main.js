@@ -17,7 +17,7 @@ function createTile() {
     arc(100, 100, 150, 150, PI, TWO_PI);
     fill('#fcb99d');
     arc(100, 100, 100, 100, PI, TWO_PI);
-    fill('#d94100');
+    fill('#cc0235');
     circle(100, 100, 50);
 }
 function draw(){

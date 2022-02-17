@@ -54,11 +54,11 @@ function setup () {
 }
 
 function draw () {
-    background (0);
+    background ('#fcb99d');
     if (gameState.numMatched === gameState.totalPairs) {
-        fill('yellow');
-        textSize(66);
-        text('winner winner chicken dinner', 400, 100);
+        fill('#d94100');
+        textSize(50);
+        text('winner winner chicken dinner', 300, 200);
         noLoop();
     }
     for (let b = 0; b < cards.length; b++) {
@@ -71,10 +71,13 @@ function draw () {
     //create scoreboard
     gameState.flippedCards.length = 0;
     gameState.waiting = false;
-    fill(255);
-    textSize(36);
-    text('attempts ' + gameState.attempts, 100, 100);
-    text('matches ' + gameState.numMatched, 100, 150);
+    fill('#2c0045');
+    textFont('Josefin Sans');
+    textSize(60);
+    text('Memory Card Game', 270, 100);
+    textSize(20);
+    text('Attempts: ' + gameState.attempts, 100, 200);
+    text('Matches: ' + gameState.numMatched, 100, 225);
 }
 
 
