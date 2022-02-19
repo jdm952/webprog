@@ -4,11 +4,37 @@ html {
     --yellow: #ffba26;
     --orange: #ff9100;
     --pink-light: #fcb99d;
-    --orange-dark: #d94100;
+    --pink-dark: #cc0235;
     --font-sans-serif: 'Josefin Sans', sans-serif;
 }
 
 body {
     font-family: var(--font-sans-serif);
     background-color: var(--pink-light);
+    margin: auto;
+    max-width: 75rem;
+}
+
+main {
+    margin: auto;
+}
+
+button {
+    background-color: var(--orange);
+    font-family: var(--font-sans-serif);
+    color: var(--purple);
+    border: 1px solid;
+    padding: .5rem;
+    margin: auto;
+}
+
+#game-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#button-holder {
+    position: relative;
 }

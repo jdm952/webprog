@@ -12,6 +12,7 @@ const gameState = {
 };
 let cardfaceArray = [];
 let cardback;
+let button;
 
 //load in images
 function preload () {
@@ -30,7 +31,9 @@ function preload () {
 
 //set up canvas and cards
 function setup () {
-    createCanvas(1300, 1500);
+    var canvas = createCanvas(1100, 1400);
+    canvas.parent('button-holder');
+
     let selectedFaces = [];
     for (let z = 0; z < 8; z++) {
         const randomIdx = floor(random(cardfaceArray.length));
@@ -50,15 +53,19 @@ function setup () {
         startingY += 250
         startingX = 100;
     }
-
+        //button stuff
+        button = createButton('Reset');
+        button.position(100, 120);
+        button.parent('button-holder');
+        button.mousePressed(reset);
 }
 
 function draw () {
     background ('#fcb99d');
     if (gameState.numMatched === gameState.totalPairs) {
-        fill('#d94100');
+        fill('#cc0235');
         textSize(50);
-        text('winner winner chicken dinner', 300, 200);
+        text('winner winner chicken dinner!', 300, 200);
         noLoop();
     }
     for (let b = 0; b < cards.length; b++) {
@@ -75,9 +82,14 @@ function draw () {
     textFont('Josefin Sans');
     textSize(60);
     text('Memory Card Game', 270, 100);
+    fill('#ff7878');
+    noStroke();
+    rect(100, 170, 150, 75);
+    fill('#2c0045');
     textSize(20);
-    text('Attempts: ' + gameState.attempts, 100, 200);
-    text('Matches: ' + gameState.numMatched, 100, 225);
+    text('Attempts: ' + gameState.attempts, 115, 200);
+    text('Matches: ' + gameState.numMatched, 115, 230);
+
 }
 
 
@@ -108,7 +120,7 @@ function mousePressed () {
             gameState.waiting = true;
             const loopTimeOut = window.setTimeout(() => {
                 loop();
-                window.clearTimeout(loopTimeout);
+                window.clearTimeout(loopTimeOut);
             }, 1000)
         }
     }
@@ -169,4 +181,8 @@ function shuffleArray (array) {
         array[idx] = temp;
     }
     return array;
+}
+
+function reset () {
+    window.location.reload();
 }
