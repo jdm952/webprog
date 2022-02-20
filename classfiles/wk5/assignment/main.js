@@ -83,7 +83,7 @@ function draw () {
     textSize(60);
     text('Memory Card Game', 270, 100);
     fill('#ff7878');
-    noStroke();
+    // noStroke();
     rect(100, 170, 150, 75);
     fill('#2c0045');
     textSize(20);
