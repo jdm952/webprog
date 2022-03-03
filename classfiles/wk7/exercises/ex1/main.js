@@ -16,7 +16,7 @@ Vue.createApp({
         },
         alpacaStyle: {
             color: "red",
-            "font-family": "cursive",
+            "font-family": "Courier New",
             "font-size": "small",
         }
       }
