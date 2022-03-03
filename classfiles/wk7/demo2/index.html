@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>looping</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>looping</h1>
+    <div id="app" v-cloak>
+        <div v-for="(prop, key) in myDog">{{key}}: {{prop}}</div>
+        <div class="animal-container" v-for="(critter, index) in animals">
+            <div><h2>{{index}}</h2></div>
+            <div>{{critter.name}}</div>
+            <div>{{critter.color}}</div>
+        </div>
+        <ul>
+            <li v-for="num in myNumbers">{{num}}</li>
+        </ul>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
