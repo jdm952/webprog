@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wk7 demo</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="main.css">
+  </head>
+<body>
+    <div id="myApp">
+        <!-- class bind -- use object, key is the class to apply, value is the condition to check. 'dark-mode' is key.  -->
+        <h1 v-bind:class="{'dark-mode': preferredMode === 'dark', 'light-mode': preferredMode === 'light'}">Hello Vue 3</h1> 
+        <!-- pass the class an object (which you do with curly brackets) -->
+        <!-- <a v-bind:href="myAwesomeUrl">Link</a> href is the attribute, v-bind works with any attribute. v- means it's a directive (like v-if). bind means it's I MISSED THIS. If you just do the colon, it assumes you're doing v-bind -->
+        <a :href="myAwesomeUrl">Link</a> <!-- can also just do without the v-bind -->
+        <p :style="paragraphStyle">This thing is a paragraph</p>
+        <h3>Things I Like</h3>
+        <ul>
+            <li v-for="(value, name) in thingsILike">{{name}}: {{value}}</li>
+        </ul>
+        <ul>
+            <li v-for="card in cards" :class="{'non-creature': card.type !== 'creature'}">{{card.name}}, {{card.type}}</li>
+        </ul>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Text</th>
+            </tr>
+            <tr v-for="card in cards">
+                <td>{{card.name}}</td>
+                <td>{{card.type}}</td>
+                <td>{{card.text}}</td>
+            </tr>
+        </table>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

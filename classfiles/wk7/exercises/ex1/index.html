@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>llamas vs alpacas</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="app">
+        <h1><a :href="llamasUrl" v-cloak>llamas</a> vs <a :href="alpacasUrl" v-cloak>alpacas</a></h1>
+        <h2 :class="{'llamas': assignment === 'far out'}">llamas:</h2>
+        <ul>
+            <li v-for="value in llamaFacts" :class="{'llamas': assignment === 'far out'}" v-cloak>{{value}}</li>
+        </ul>
+        <h2 :style="alpacaStyle">alpacas:</h2>
+        <ul>
+            <li v-for="value in alpacaFacts" :style="alpacaStyle" v-cloak>{{value}}</li>
+        </ul>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+    color: magenta;
+    padding: 1rem;
+}
+
+a {
+    color: magenta;
+}
+
+h2 {
+    margin-top: 4rem;
+}
+
+.llamas {
+    color: rgb(82, 133, 243);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+}

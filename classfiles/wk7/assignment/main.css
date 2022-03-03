@@ -1,0 +1,23 @@
+html {
+    --teal: #c4effc;
+    --purple: #5f1bad;
+    --font-sans-serif: 'Bebas Neue';
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    background-color: var(--purple);
+    color: var(--teal);
+}
+
+#llamas {
+    margin: 5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 1rem 0 0;
+}
