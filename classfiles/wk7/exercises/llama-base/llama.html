@@ -15,9 +15,13 @@
         <span class="rank">Rank</span>
         <span class="name">Name</span>
       </div>
-
     </div>
-    <p>{{llamas[0]}}</p>
+      <div class="list-body" >
+        <div v-for="(value, index) in llamas" :class="{even: (index + 1) % 2 === 0, odd: (index + 1) % 2 !== 0}">
+          <p class="rank">{{value.rank}}</p>
+          <p :class="{special: value.name.toLowerCase('llama').includes('llama') === true, notspecial: value.name.toLowerCase('llama').includes('llama') === false}">{{value.name}}</p>
+        </div>
+      </div>
   </div>
 
   <script src="llamas.js"></script>
