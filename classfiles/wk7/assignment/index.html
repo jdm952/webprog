@@ -4,23 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning About Llamas</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Garden Flowers</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
-    <link href="main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="normalize.css">
 </head>
 <body>
-    <div id="llamas">
-        <h1>Learning About Llamas</h1>
-        <ul>
-            <li v-for="fact in factsArray">{{fact}}</li>
-            <li>Llamas can <span v-if="habitat==='ocean'">breathe underwater</span><span v-else>go to space</span></li>
-            <li>{{extra}}</li>
-        </ul>
-        <p>Add your own llama fact: <input v-model="extra" placeholder="add here"> </p>
-    </div>
+    <main>
+        <div id="app">
+            <h1>Garden Flowers</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Color</th>
+                        <th>Height</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(value, idx) in flowers" :class="{odd: (idx + 1) % 2 !== 0}">
+                        <td>{{value.name}}</td>
+                        <td>{{value.type}}</td>
+                        <td>{{value.color}}</td>
+                        <td>{{value.height}}</td>
+                        <td><img :src="value.image" :alt="value.name"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
     <script src="main.js"></script>
 </body>
 </html>
