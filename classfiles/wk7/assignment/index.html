@@ -14,7 +14,7 @@
 </head>
 <body>
         <h1>Garden Flowers</h1>
-        <div id="app">
+        <div id="app" v-cloak>
             <table>
                 <thead>
                     <tr>
@@ -26,12 +26,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(value, idx) in flowers" :class="{odd: (idx + 1) % 2 !== 0}">
+                    <tr v-for="(value, idx) in flowers" :class="{odd: (idx + 1) % 2 !== 0}" v-cloak>
                         <td>{{value.name}}</td>
                         <td>{{value.type}}</td>
                         <td>{{value.color}}</td>
                         <td>{{value.height}}</td>
-                        <td><img :src="value.image" :alt="value.name"></td>
+                        <td><img :src="value.image" :alt="value.name" v-cloak></td>
                     </tr>
                 </tbody>
             </table>
