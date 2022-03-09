@@ -1,0 +1,39 @@
+[v-cloak] {
+    display: none;
+}
+
+form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+div {
+    margin: 10px 0;
+    display: flex;
+}
+
+div.alpaca-status, div.output, div.colors {
+    flex-direction: column;
+}
+
+div.colors p, div.output p {
+    margin: 0;
+}
+
+div label {
+    margin-right:10px;
+}
+div input {
+    flex-grow: 1;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+select {
+    width: 100%;
+}

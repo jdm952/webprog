@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Forms</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app" v-cloak>
+
+        <form v-on:submit.prevent="favColor='purple'"> <!-- normally you'd do form action="" and it would point to a server but that's not how it works with vue. withnormal js just hand submit qwha you want but with vue, use v-on-->
+            <fieldset>
+                <label for="">Favorite Color</label><input v-model="favColor" type="text" name="" id="">
+                <div>
+                    <label>My Life Story</label>
+                    <textarea :placeholder="bioPlaceholder" v-model="bio" name="" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                    <label for="chooseState"></label>
+                    <select v-model="state" name="" id="chooseState">
+                        <option v-for="stateObj in stateArray" key="stateObj.abbr" :value="stateObj.abbr">{{stateObj.label}}</option>
+                    </select>
+                </div>
+            </fieldset>
+            <button type="submit">Submit</button>
+        </form>
+        <div>
+            output
+            <p>color: {{favColor}}</p>
+        </div>
+     <!-- demo code -->
+        <!-- <div class="container">
+            <h1>{{title}}</h1>
+            <div class="newItem">
+                <label for="newTodo">Add an item</label>
+                <input v-model="newItem" type="text" id="newTodo">
+                <br>
+                <label for="">Priority Level</label>
+                <select v-model="newItemPriority">
+                    <option value="high">High</option>  -->
+
+<!-- don't need to include value if option is same as value (in casing too) -->
+
+                    <!-- <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <div class="output">
+                <small>Item to add</small>
+                <br>
+                {{newItem}}
+                <br>
+                Priority Level {{newItemPriority}}
+            </div>
+            <ul>
+                <li v-for="todo in todoItems" key="todo.id" class="card m-2">{{todo.label}}</li>
+            </ul>
+        </div> -->
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
