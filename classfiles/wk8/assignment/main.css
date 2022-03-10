@@ -1,0 +1,62 @@
+html {
+    --pink: #ff7878;
+    --yellow: #ffba26;
+    --green: #0c8827;
+    --pink-light: #ffeee7;
+    --pink-dark: #cc0235;
+    --font-sans-serif: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    margin: auto;
+    width: 100%;
+}
+
+img {
+    max-width: 200px;
+    padding: 1rem;
+}
+
+h1 {
+    margin: 0;
+    padding: 1rem;
+    background-color: var(--pink-dark);
+    color: white;
+    font-size: 3rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow: hidden;
+}
+
+th {
+    font-weight: 700;
+    background-color: var(--yellow);
+}
+
+tr {
+    text-align: left;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+}
+
+td, th {
+    padding: 1.2rem; 
+    
+}
+
+.odd {
+    background-color: var(--pink-light);
+}
+
+#app {
+    margin: auto;
+    
+}
+
+[v-cloak] {
+    display: none;
+}
