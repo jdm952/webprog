@@ -44,7 +44,34 @@ Vue.createApp({
                     height: "Medium",
                     image: "img/zinnia.jpg"
                 }
-            ]
+            ],
+            newFlower: {
+                name: "",
+                type: "",
+                color: "",
+                height: "",
+                image: ""
+            }
+        }
+    },
+    methods: {
+        submitHandler() {
+            this.flowers = this.flowers.concat(this.newFlower);
+            this.newFlower = {
+                name: "",
+                type: "",
+                color: "",
+                height: "",
+                image: ""
+            };
+        },
+        isValid() {
+            return this.newFlower.name && this.newFlower.type && this.newFlower.color && this.newFlower.height && this.newFlower.image;
+        },
+        deleteFlower (item) {
+            this.flowers = this.flowers.filter(flower => {
+                return flower !== item;
+            });
         }
     }
 }).mount("#app");

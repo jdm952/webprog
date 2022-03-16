@@ -23,6 +23,7 @@
                         <th>Color</th>
                         <th>Height</th>
                         <th>Image</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,9 +33,41 @@
                         <td>{{value.color}}</td>
                         <td>{{value.height}}</td>
                         <td><img :src="value.image" :alt="value.name" v-cloak></td>
+                        <td><button type="button" v-on:click="deleteFlower(flower)">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
+            <form v-on:submit.prevent="submitHandler">
+                <fieldset>
+                    <legend>Add a flower</legend>
+                    <div>
+                        <label for="name">Flower Name
+                            <input id="name" type="text" v-model="newFlower.name">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="type">Flower Type
+                            <input id="type" type="text" v-model="newFlower.type">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="color">Flower Color
+                            <input id="color" type="text" v-model="newFlower.color">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="height">Flower Height
+                            <input id="height" type="text" v-model="newFlower.height">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="image">Image (URL)
+                            <input id="image" type="text" v-model="newFlower.image">
+                        </label>
+                    </div>
+                    <button type="submit" :disabled="!isValid()">Add Flower</button>
+                </fieldset>
+            </form>
         </div>
     <script src="main.js"></script>
 </body>
