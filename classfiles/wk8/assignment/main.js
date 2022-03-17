@@ -45,6 +45,15 @@ Vue.createApp({
                     image: "img/zinnia.jpg"
                 }
             ],
+            flowerTypes: [
+                { value: "annual", name: "Annual"},
+                { value: "perennial", name: "Perennial"}
+            ],
+            flowerHeights: [
+                { value: "short", name: "Short"},
+                { value: "medium", name: "Medium"},
+                { value: "tall", name: "Tall"},
+            ],
             newFlower: {
                 name: "",
                 type: "",

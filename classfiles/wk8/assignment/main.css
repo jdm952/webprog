@@ -35,17 +35,22 @@ table {
 th {
     font-weight: 700;
     background-color: var(--yellow);
+    font-size: 1.5rem;
 }
 
 tr {
     text-align: left;
     padding: 0 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 td, th {
     padding: 1.2rem; 
     
+}
+
+button {
+    padding: .2rem .5rem;
 }
 
 .odd {
@@ -59,4 +64,37 @@ td, th {
 
 [v-cloak] {
     display: none;
+}
+
+form {
+    width: 100%;
+}
+
+.flower-form {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.flower {
+    padding: 0 3rem 0 0;
+}
+
+.flower input, .flower select {
+    display: block;
+    margin-top: .5rem;
+}
+
+.flower-color input {
+    max-width: 15rem;
+}
+
+.flower-button {
+    padding-top: 1.7rem;
+    margin-left: 4rem;
+}
+
+.delete {
+    font-size: 1rem;
 }
