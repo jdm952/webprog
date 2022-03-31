@@ -29,6 +29,7 @@ body {
   width: 25rem;
 } 
 .song-list-item a {
+    display: block;
   color: black;
   text-decoration: none;
 }
