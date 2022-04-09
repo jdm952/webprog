@@ -1,3 +1,14 @@
+html {
+    --purple: #2c0045;
+    --orange: rgb(245, 126, 16);
+    --beige: rgb(240, 193, 149);
+    --purple-light: #d5a9f3;
+    --blue: #9dc3fc;
+    --blue-dark: #02237e;
+    --font-cursive: 'Shadows Into Light', cursive;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-cursive);
+    padding: 1rem;
 }
