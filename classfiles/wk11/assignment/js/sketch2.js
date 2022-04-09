@@ -1,24 +1,22 @@
 function setup() {
     createCanvas(1000, 1000);
+    stroke(45, 130, 252);
 };
 
 function draw() {
     background("#2c0045");
-    for (i = 0; i < width; i++) {
-        drawing(i, 10, 20, 10);
-        drawing(i, i/4, 30, 25);
-        drawing(i, i/2, 40, 50);
-        drawing(i, i, 50, 100);
-        drawing(i, i*2, 60, 200);
-        drawing(i, i*4, 70, 400);
-        drawing(i, i*12, 80, 1200);
+    for (j = 0; j < 400; j += 10) {
+        for (i = 0; i < 500; i += 10) {
+            drawing((i * 1.5), (j * .8), (i * 2), j/2, (i * 6));
+        };
     };
 }
 
-function drawing(x, y, drawingWidth, height) {
+function drawing(x, y, drawingWidth, height, red) {
     push();
     translate(x, y);
-    fill(255);
+    fill(red, 195, 252);
     ellipse(x, 0, drawingWidth, height);
+    ellipse(0, y, drawingWidth, height);
     pop();
 }
