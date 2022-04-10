@@ -22,34 +22,34 @@ class Tiger {
       for (let j = 0; j < 10; j++) {
         //create tigers on x axis
         for (let i = 0; i < 10; i++) {
-            const newTiger = { x: (i * 200) + 50, y: (j * 200) + 100, s: random(0.25, 1)}
-            tiger(newTiger.x, newTiger.y, newTiger.s);
+            const newTiger = { x: (i * 200) + 50, y: (j * 200) + 100, s: random(0.25, 1), ear: 80 * random(0.25, 2), ear2: 50 * random(0.25, 2), eyes: 30 * random(.1, 2), stripes: 10 * random(0.25, 1)}
+            tiger(newTiger.x, newTiger.y, newTiger.s, newTiger.ear, newTiger.ear2, newTiger.eyes, newTiger.stripes);
             tigerArray.push(newTiger);
             }
         } 
     }
 };
 
-function tiger(x, y, s) {
+function tiger(x, y, s, ear, ear2, eyes, stripes) {
     push();
     translate(x, y);
     scale(s);
     fill(245, 126, 16);
     //left ear
-    ellipse(-65, -120, 80);
+    ellipse(-65, -120, ear);
     fill(0);
-    ellipse(-65, -120, 50);
+    ellipse(-65, -120, ear2);
     fill(245, 126, 16);
     //right ear
-    ellipse(65, -120, 80);
+    ellipse(65, -120, ear);
     fill(0);
-    ellipse(65, -120, 50);
+    ellipse(65, -120, ear2);
     fill(245, 126, 16);
     //head
     ellipse(0, -50, 170, 190);
     //stripes
     stroke(0);
-    strokeWeight(10);
+    strokeWeight(stripes);
     noFill();
     //top stripes
     line(-20, -141, -20, -123);
@@ -88,8 +88,8 @@ function tiger(x, y, s) {
     //eyes
     noStroke();
     fill(0);
-    ellipse(-30, -80, 30, 40);
-    ellipse(30, -80, 30, 40);
+    ellipse(-30, -80, eyes, 40);
+    ellipse(30, -80, eyes, 40);
     //pupils
     fill(255);
     ellipse(-28, -86, 15);
