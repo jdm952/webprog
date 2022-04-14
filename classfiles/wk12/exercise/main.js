@@ -12,7 +12,7 @@ function setup() {
     soundArray[2] = loadSound("../sound/d5-trem-d4-v2.wav");
     soundArray[3] = loadSound("../sound/e4-trem-e3-v2.wav");
     amplitude = new p5.Amplitude();
-    button = createButton("push me again");
+    button = createButton("push me");
     button.parent("samples-button");
     button.mousePressed(togglePlay);
 }
@@ -25,12 +25,14 @@ function draw() {
 
     fill(255, 0 , 50);
     ellipse(width/2, height/2, size, size);
+
 }
 
 function togglePlay() {
         let sound = random(soundArray);
-        if (sound.isPlaying() ){
+        if (!sound.isPlaying() ){
             sound.play();
+            button.html("push me again");
         } else {
             sound.play();
         }
