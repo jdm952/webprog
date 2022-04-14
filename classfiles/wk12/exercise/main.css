@@ -1,0 +1,11 @@
+body {
+    background-color: black;
+}
+
+button {
+    background-color: aquamarine;
+    font-family: sans-serif;
+    border: 1px solid;
+    padding: .5rem;
+    margin: auto;
+}
