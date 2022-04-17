@@ -1,0 +1,50 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10rem;
+    background-color: black;
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: stretch;
+    margin: auto;
+    padding: 0;
+}
+
+button {
+    padding: 1rem 14rem;
+    margin: 0;
+    border: none;
+}
+
+.orange {
+    background-color: rgb(255, 127, 80);
+}
+
+.pink {
+    background-color: rgb(255, 192, 203);
+}
+
+.yellow {
+    background-color: rgb(247, 230, 134);
+}
+
+button:hover {
+    background-color: rgb(138, 43, 226);
+}
+
+main {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+}
+canvas {
+    margin: 0;
+    padding: 0;
+}
+
+.active {
+    background-color:springgreen;
+}
