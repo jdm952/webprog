@@ -2,11 +2,11 @@ var slider;
 var pos;
 
 function setup() {
-    createCanvas(500, 500);
+    let canvas = createCanvas(500, 500);
+    canvas.addClass("center");
     angleMode(DEGREES);
-    slider = createSlider(0, 5, .5);
-    slider.position(10, 10);
-    slider.style('width', '80px');
+    slider = createSlider(0, 5, 1, .1);
+    slider.addClass("center");
 
     pos = 0.0; //using a float value instead of an integer
     inc = 2.0;//amount by which we increase position. it's an angle.
