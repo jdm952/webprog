@@ -8,10 +8,10 @@ function setup() {
     slider = createSlider(0, 5, 1, .1);
     slider.addClass("center");
 
-    pos = 0.0; //using a float value instead of an integer
-    inc = 2.0;//amount by which we increase position. it's an angle.
+    pos = 0.0;
+    inc = 2.0;
 
-    pos2 = 0.0; //using a float value instead of an integer
+    pos2 = 0.0;
     inc2 = 5.0;
 
 }
@@ -46,5 +46,4 @@ function draw() {
     }
 
     pos = pos + slider.value();
-    // pos2 = pos2 + slider2.value();
 }
