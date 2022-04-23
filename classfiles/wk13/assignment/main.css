@@ -1,0 +1,9 @@
+body {
+    background-color: black;
+}
+
+.center {
+    display: block;
+    margin: auto;
+    padding: 3rem;
+}
