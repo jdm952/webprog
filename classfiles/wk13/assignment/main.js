@@ -9,10 +9,12 @@ function setup() {
 
 function draw() {
     background (0);
+    //create new flames
     for (let i = 0; i < 2; i++) {
         let p = new Flame();
         flames.push(p);
     }
+    //remove old flames
     for (let i = flames.length - 1; i >= 0; i--) {
         flames[i].update();
         flames[i].show();
@@ -20,6 +22,8 @@ function draw() {
             flames.splice(i, 1);
         }
     }
+
+    //log 1
     fill(107, 57, 24);
     noStroke();
     beginShape();
@@ -29,6 +33,7 @@ function draw() {
     ellipse(345, 380, 40);
     endShape();
 
+    //log 2
     beginShape();
     fill(107, 57, 24);
     ellipse(360, 360, 40);
