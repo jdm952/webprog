@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+}
+
+.center {
+    display: block;
+    margin: auto;
+    padding: 3rem;
+}
+
+.nav {
+    max-width: 30rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(145, 240, 240);
+    font-family: 'Bebas Neue';
+    font-size: 3rem;
+}
