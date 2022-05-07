@@ -5,12 +5,17 @@ let flames = [];
 function setup() {
     let canvas = createCanvas(600, 400);
     canvas.addClass("center");
+    //slider adjusts max number of particles
+    slider = createSlider(0, 7, 0);
+    slider.addClass("slidertitle");
+    slider2 = createSlider(4, 5, 5, .25);
+    slider2.addClass("slidertitle");
 }
 
 function draw() {
     background (0);
     //create new flames
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < slider.value(); i++) {
         let p = new Flame();
         flames.push(p);
     }

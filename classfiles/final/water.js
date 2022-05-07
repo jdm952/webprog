@@ -2,16 +2,20 @@
 
 
 particles1 = [];
-particles2 = [];
 
 function setup() {
     let canvas = createCanvas(600, 400);
     canvas.addClass("center");
+    //slider adjusts max number of particles
+    slider = createSlider(0, 15, 0);
+    slider.addClass("slidertitle");
+    slider2 = createSlider(0, 5, 5, .25);
+    slider2.addClass("slidertitle");
 }
 
 function draw() {
   background(0);
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < slider.value(); i++) {
     let p = new Particle1();
     particles1.push(p);
   }
@@ -43,7 +47,7 @@ class Particle1 {
   update() {
     this.x += this.vx;
     this.y += this.vy;
-    this.alpha -= 5;
+    this.alpha -= slider2.value();
   }
   
   

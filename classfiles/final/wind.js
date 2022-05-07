@@ -1,85 +1,28 @@
-var offset = 0;
-var strum = 1;
+let offset = 0;
+let strum = 1;
 
 function setup() { 
-    let canvas = createCanvas(600, 400);
-    canvas.addClass("center");
+  let canvas = createCanvas(600, 400);
+  canvas.addClass("center");
+  slider = createSlider(0, 0.3, 0.1, 0.01);
+  slider.addClass("slidertitle");
+  slider2 = createSlider(0, 600, 1);
+  slider2.addClass("slidertitle");
 } 
 
 function draw() { 
   
   background(0);
-  stroke(255);
+  fill(255);
+  noStroke();
   beginShape();
-  for(var x = 0; x < width; x++){
+  for(var x = 0; x < slider2.value(); x++){
     //var angle = map(x, 0, width, 0, TWO_PI);
     var angle = offset + x * 0.01;
     // map x between 0 and width to 0 and Two Pi
     var y = map(sin(angle), -strum, strum, 150, 250);
     vertex(x, y);
-    vertex(x*3, y);
-  };
+  }
   endShape();
-  offset += 0.15;
-  strum += .02;
+  offset += slider.value();
 }
-
-
-
-
-//starting code from particle system waterfall by zahrak https://editor.p5js.org/zahrak/sketches/B1FV3hKDf
-
-
-// particles1 = [];
-// particles2 = [];
-
-// function draw() {
-//   background(0);
-//   for (let i = 0; i < 5; i++) {
-//     let p = new Particle1();
-//     particles1.push(p);
-//   }
-//   for (let i = particles1.length - 1; i >= 0; i--) {
-//     particles1[i].update();
-//     particles1[i].show();
-//     if (particles1[i].finished()) {
-//       // remove this particle
-//       particles1.splice(i, 1);
-//     }
-//   }
-
-// }
-
-// class Particle1 {
-
-//   constructor() {
-//     this.x = 350;
-//     this.y = 80;
-//     this.vx = random(-1, 1);
-//     this.vy = random(5, 1);
-//     this.alpha = 255;
-//   }
-
-//   finished() {
-//     return this.alpha < 0;
-//   }
-
-//   update() {
-//     this.x += this.vx;
-//     this.y += this.vy;
-//     this.alpha -= 5;
-//   }
-  
-  
-
-//   show() {
-//     noStroke();
-        // beginShape();
-        // for(var i = 0; i < width; i++){
-        //     var angle = offset + i * 0.01;
-        //     var y = map(sin(angle), -strum, strum, 150, 250);
-        //     vertex(i, y);
-        //     vertex(i*3, y);
-        // };
-        // endShape();
-// }
