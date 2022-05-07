@@ -15,7 +15,7 @@ function setup() {
   canvas.addClass("center");
   slider = createSlider(0, 0.01, 0.001, 0.001);
   slider.addClass("slidertitle");
-  slider2 = createSlider(0, 600, 200);
+  slider2 = createSlider(0, 600, 300);
   slider2.addClass("slidertitle");
   button = createButton('reset');
   button.addClass("reset");
