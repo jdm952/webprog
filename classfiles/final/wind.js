@@ -6,7 +6,7 @@ function setup() {
   canvas.addClass("center");
   slider = createSlider(0, 0.3, 0.1, 0.01);
   slider.addClass("slidertitle");
-  slider2 = createSlider(0, 600, 1);
+  slider2 = createSlider(0, 600, 500);
   slider2.addClass("slidertitle");
 } 
 

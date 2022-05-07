@@ -7,7 +7,7 @@ function setup() {
     let canvas = createCanvas(600, 400);
     canvas.addClass("center");
     //slider adjusts max number of particles
-    slider = createSlider(0, 15, 0);
+    slider = createSlider(0, 15, 4);
     slider.addClass("slidertitle");
     slider2 = createSlider(0, 5, 5, .25);
     slider2.addClass("slidertitle");
@@ -55,13 +55,16 @@ class Particle1 {
   show() {
     noStroke();
     fill(10,215,232, this.alpha);
-    ellipse(this.x, this.y,10);
+    ellipse(this.x, this.y, 10);
+    ellipse(this.x+20, this.y, 10);
     fill(10,255,232, this.alpha/10);
-    ellipse(this.x+10, this.y,10);
-    fill(10,150,232, this.alpha/4);
-    ellipse(this.x-10, this.y,10);
+    ellipse(this.x+10, this.y, 10);
+    ellipse(this.x-30, this.y, 10);
+    ellipse(this.x+30, this.y, 10);
+    fill(10,150,200, this.alpha/4);
+    ellipse(this.x-10, this.y, 10);
     fill(10,255,232, this.alpha/2);
-    ellipse(this.x-20, this.y,10);
+    ellipse(this.x-20, this.y, 10);
   }
 
 }
