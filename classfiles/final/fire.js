@@ -7,7 +7,7 @@ function setup() {
     let canvas = createCanvas(600, 400);
     canvas.addClass("center");
     //slider adjusts max number of particles
-    slider = createSlider(0, 5, 3, .5);
+    slider = createSlider(0, 30, 30);
     slider.addClass("slidertitle");
     slider2 = createSlider(-10, -1, -6);
     slider2.addClass("slidertitle");
@@ -15,8 +15,9 @@ function setup() {
 
 function draw() {
     background (0);
+    frameRate(slider.value());
     //create new flames
-    for (let i = 0; i < slider.value(); i++) {
+    for (let i = 0; i < 2; i++) {
         let p = new Flame();
         flames.push(p);
     }
@@ -37,6 +38,9 @@ class Flame {
         this.y = 380;
         this.vx = random(-2, 2);
         this.alpha = 255;
+        this.r = random(220,255);
+        this.g = random(50,175);
+        this.b = random(0, 200);
     }
 
     finished() {
@@ -55,17 +59,19 @@ class Flame {
         beginShape();
        
         //light orange
-        fill(255, 189, this.alpha-150);
+        fill(this.r, this.g, this.alpha-250);
         bezier(315, 380, this.x-5, this.y-40, this.x+15, this.y+20, this.x+20, this.y-90);
         bezier(290, 380, this.x-40, this.y-40, this.x+45, this.y+30, this.x-10, this.y-100);
        
         //red
-        fill(252, this.alpha/2, 7);
+        // fill(252, this.alpha/2, 7);
+        fill(this.r, 0, this.alpha-150);
         bezier(280, 380, this.x+20, this.y-30, this.x-40, this.y+10, this.x-50, this.y-70);
         bezier(320, 380, this.x+20, this.y, this.x+23, this.y+10, this.x+22, this.y-70);
        
-        //light orange
-        fill(255, 189, this.alpha-150);
+        // //light orange
+        // fill(255, 189, this.alpha-150);
+        fill(this.r, this.g, this.alpha-250);
         bezier(300, 380, this.x-20, this.y-30, this.x+40, this.y-30, this.x+20, this.y-80);
 
         //yellow
@@ -73,13 +79,13 @@ class Flame {
         bezier(320, 380, this.x+20, this.y-30, this.x-40, this.y+20, this.x-40, this.y-90);
         bezier(325, 380, this.x+5, this.y-30, this.x-20, this.y+10, this.x-50, this.y-60);
 
-        //red
-        fill(252, this.alpha/2, 7);
+        // //red
+        fill(this.r, 0, this.alpha-150);
         bezier(285, 380, this.x+5, this.y-30, this.x-55, this.y+10, this.x-50, this.y-60);
         bezier(305, 380, this.x-5, this.y-30, this.x+55, this.y-30, this.x+60, this.y-80);
 
 
-        // endShape();
+        endShape();
     }
 }
 

@@ -13,7 +13,7 @@ function setup() {
 function draw() { 
   
   background(0);
-  fill(255);
+  // fill(255);
   noStroke();
   beginShape();
   for(var x = 0; x < slider2.value(); x++){
@@ -21,6 +21,9 @@ function draw() {
     var angle = offset + x * 0.01;
     // map x between 0 and width to 0 and Two Pi
     var y = map(sin(angle), -strum, strum, 150, 250);
+    let r = map(sin(angle), -strum, strum, 100, 255);
+    let g = map(sin(angle), -strum, strum, 0, 75);
+    fill(r, g, 0);
     vertex(x, y);
   }
   endShape();
