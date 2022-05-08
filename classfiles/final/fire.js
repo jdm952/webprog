@@ -2,13 +2,13 @@
 
 let flames = [];
 
-
 function setup() {
     let canvas = createCanvas(600, 400);
     canvas.addClass("center");
-    //slider adjusts max number of particles
+    //slider adjusts frame rate
     slider = createSlider(0, 30, 30);
     slider.addClass("slidertitle");
+    //slider2 adjusts height of flames
     slider2 = createSlider(-10, -1, -6);
     slider2.addClass("slidertitle");
 }
@@ -37,6 +37,7 @@ class Flame {
         this.x = 300;
         this.y = 380;
         this.vx = random(-2, 2);
+        //two ways of adjusting color to look like it's flickering
         this.alpha = 255;
         this.r = random(220,255);
         this.g = random(50,175);
@@ -64,13 +65,11 @@ class Flame {
         bezier(290, 380, this.x-40, this.y-40, this.x+45, this.y+30, this.x-10, this.y-100);
        
         //red
-        // fill(252, this.alpha/2, 7);
         fill(this.r, 0, this.alpha-150);
         bezier(280, 380, this.x+20, this.y-30, this.x-40, this.y+10, this.x-50, this.y-70);
         bezier(320, 380, this.x+20, this.y, this.x+23, this.y+10, this.x+22, this.y-70);
        
         // //light orange
-        // fill(255, 189, this.alpha-150);
         fill(this.r, this.g, this.alpha-250);
         bezier(300, 380, this.x-20, this.y-30, this.x+40, this.y-30, this.x+20, this.y-80);
 
@@ -83,7 +82,6 @@ class Flame {
         fill(this.r, 0, this.alpha-150);
         bezier(285, 380, this.x+5, this.y-30, this.x-55, this.y+10, this.x-50, this.y-60);
         bezier(305, 380, this.x-5, this.y-30, this.x+55, this.y-30, this.x+60, this.y-80);
-
 
         endShape();
     }

@@ -3,21 +3,18 @@ body {
     color: white;
     font-family: 'Bebas Neue';
 }
-
 .center {
     display: flex;
     flex-direction: column;
     margin: auto;
     padding: 3rem 1rem 1rem;
 }
-
 .nav {
     max-width: 30rem;
     margin: auto;
     display: flex;
     justify-content: space-around;
 }
-
 a {
     text-decoration: none;
     color: rgb(145, 240, 240);

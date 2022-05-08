@@ -1,3 +1,5 @@
+//starting code from Getting Started with p5.js book, example 8-6
+
 let startX = 200;
 let stopX= 300;
 let startY= 310; 
@@ -13,10 +15,13 @@ let button;
 function setup() {
   let canvas = createCanvas(600, 400);
   canvas.addClass("center");
+  //slider adjusts growth rate
   slider = createSlider(0, 0.01, 0.001, 0.001);
   slider.addClass("slidertitle");
+  //slider adjusts angle of growth
   slider2 = createSlider(0, 600, 300);
   slider2.addClass("slidertitle");
+  //button restarts growth
   button = createButton('reset');
   button.addClass("reset");
   button.mousePressed(reset);
@@ -28,7 +33,7 @@ function reset() {
 
 function draw() {
   background(0);
-
+  //grass growth
   if (pct < 1.0) {
     x = startX + ((slider2.value()-startX) * pct);
     y = startY + ((stopY-startY) * pct);
@@ -36,8 +41,10 @@ function draw() {
   } 
 
   noStroke();
+  //sun
   fill(200, 150, 20);
   circle(slider2.value(), 0, 50);
+  //grass
   //light green
   fill(0, 100, 7);
   bezier(425, 400, 370, 350, 370, 300, x+50, y);
@@ -48,7 +55,6 @@ function draw() {
   //yellow
   fill(153, 138, 3);
   bezier(400, 400, 450, 350, 400, 300, x+150, y);
-
   //dark green
   fill(0, 50, 7);
   bezier(175, 400, 175, 350, 100, 300, x-50, y+50);
