@@ -22,7 +22,7 @@ function draw() {
   }
   //remove old water molecules
   for (let i = molecules.length - 1; i >= 0; i--) {
-    molecules.update();
+    molecules[i].update();
     molecules[i].show();
     if (molecules[i].finished()) {
       molecules.splice(i, 1);
